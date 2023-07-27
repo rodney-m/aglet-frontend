@@ -1,1 +1,277 @@
-/* You can add global styles to this file, and also import other style files */
+$breakpoint: 900px;
+
+// Resetting
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+// line below ensures that the footer will always stay at the bottom of the page even if the rest of the content doesnt cover the full page
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .app-body {
+    flex: 1;
+  }
+}
+
+.navbar {
+  padding: 1rem;
+  width: 100%;
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .mobile__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    // z-index: 11;
+  }
+
+  @media (max-width: $breakpoint) {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  &__logo {
+    img {
+      height: 25px;
+    }
+  }
+
+  &__links {
+    a {
+      color: #ffffff;
+      font-weight: 800;
+      margin-right: 1rem;
+    }
+
+    display: block;
+
+    
+
+    @media (max-width: $breakpoint) {
+      a {
+        display: block;
+        text-align: right;
+
+        font-size: 2rem;
+        margin-top: 1rem;
+        font-weight: 800;
+      }
+    }
+  }
+
+  .navbar__menu__button {
+    display: none;
+
+    @media (max-width: $breakpoint) {
+      input[type="checkbox"] {
+        display: none;
+
+        &:checked + label span:first-child {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        &:checked + label span:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:checked + label span:last-child {
+          transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+       
+      }
+    }
+
+    label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
+      cursor: pointer;
+
+      span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #eee;
+      }
+    }
+
+    #nav-check {
+      display: none;
+    }
+  }
+
+  @media (max-width: $breakpoint) {
+    .navbar__menu__button {
+      display: block;
+    }
+  }
+}
+
+
+
+::-webkit-scrollbar {
+  /* Webkit */
+  width: 0;
+  height: 0;
+}
+
+.slide {
+  display: flex;
+  overflow-x: scroll;
+
+  &__item {
+    flex-basis: calc(100% / 3);
+    flex-grow: 1;
+    flex-shrink: 0;
+    list-style: none;
+
+    &__title {
+      font-weight: 800;
+    }
+
+    &__subtitle {
+      font-weight: 100;
+      color: #2c2c2c;
+    }
+  }
+
+
+  @media (max-width: $breakpoint) {
+    flex-direction: column;
+
+    &__item {
+      height: 55vh;
+      width: 100%;
+
+      &__content{
+        position: relative;
+      }
+
+      video{
+        object-fit: cover;
+        width: 100%;
+      }
+  
+      &__description {
+        position: absolute;
+        top: 50%;
+        left: 2rem;
+      }
+      &__title {
+        font-size: 3rem;
+      }
+  
+      &__subtitle {
+        font-weight: 400;
+        color: #fff;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+.scrollbar {
+  margin: 3rem auto;
+  width: 300px;
+  height: 1px;
+  border: 0;
+  background-color: #2c2c2c;
+
+  .thumb {
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+  }
+
+  @media (max-width: $breakpoint) {
+    display: none;
+  }
+}
+
+.footer {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #8a8a8a;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    color: #8a8a8a;
+    text-decoration: none;
+  }
+}
+
+
+
+.contact__wrapper{
+    display: flex;
+    min-height: 100vh;
+    padding: 0 3rem;
+    position: relative;
+
+    &__image{
+      // background: url('assets/contact-image.jpg');
+      // background-position: center;
+      // background-repeat: no-repeat;
+      // background-size: cover;
+      // height: 100%;
+      width: 45vw;
+      background: url('assets/contact-image.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &__right{
+      flex: 1;
+    }
+
+    .contact__text{
+      
+
+      h1{
+        font-weight: 800;
+        font-size: 7rem;
+        color: #202020;
+        margin-top: 2rem;
+        margin-left: -135px;
+      }
+
+      &__body{
+        padding: 0 3rem 0;       
+
+        p{
+          color: #ccc;
+          margin-top: 1.3rem;
+        }
+        
+        a{
+          color: #979797;
+        }
+      }
+    }
+}

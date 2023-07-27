@@ -1,0 +1,45 @@
+<!-- <div class="nav">
+  <input type="checkbox" id="nav-check" />
+  <div class="nav-header">
+    <div class="nav-title">
+      <img src="assets/aglet_logo.svg" alt="" />
+    </div>
+  </div>
+  <div class="nav-btn">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+
+  <div class="nav-links">
+    <a href="" target="_blank">home</a>
+    <a href="" target="_blank">contact</a>
+  </div>
+</div> -->
+
+<div class="navbar">
+  <div class="mobile__wrapper">
+    <div class="navbar__logo">
+      <img src="assets/aglet_logo.svg" alt="" />
+    </div>
+  
+    <div class="navbar__menu__button">
+      <input  type="checkbox" id="nav-check" />
+  
+      <label for="nav-check" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+  </div>
+
+
+  <div class="navbar__links" #links [ngStyle]="{display: show? 'block' : 'none'}">
+    <a routerLink="/">home</a>
+    <a routerLink="/contact">contact</a>
+  </div>
+  
+</div>

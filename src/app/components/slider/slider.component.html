@@ -1,0 +1,13 @@
+<div class="slider__wrapper" >
+  <ul class="slide" #slideList (scroll)="onScroll($event)">
+    <li class="slide__item" *ngFor="let slide of slides">
+      <app-slide-item [slide]="slide"></app-slide-item>
+    </li>
+  </ul>
+</div>
+
+<div class="scrollbar__wrapper">
+  <div class="scrollbar" >
+    <div class="thumb" [ngStyle]="{ width : scrollPositionValue+'%' }"></div>
+  </div>
+</div>

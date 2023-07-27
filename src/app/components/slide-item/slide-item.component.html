@@ -1,0 +1,20 @@
+<div class="slide__item__content">
+  <div class="slide__item__video__wrapper">
+    <video
+      (touchstart)="playVideo(currentVideo)"
+      (mouseenter)="playVideo(currentVideo)"
+      loop
+      (mouseleave)="pauseVideo(currentVideo)"
+      #currentVideo
+      style="max-width: 100%; cursor: pointer"
+      [poster]="slide.image"
+    >
+      <source [src]="slide.video" />
+      <p>Video is not supported by your browser</p>
+    </video>
+  </div>
+  <div class="slide__item__description">
+    <h2 class="slide__item__title">{{ slide.title }}</h2>
+    <p class="slide__item__subtitle">{{ slide.subtitle }}</p>
+  </div>
+</div>
