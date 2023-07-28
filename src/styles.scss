@@ -15,6 +15,10 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+a{
+  color: #ffffff;
+}
+
 // line below ensures that the footer will always stay at the bottom of the page even if the rest of the content doesnt cover the full page
 .app-container {
   display: flex;
@@ -26,82 +30,25 @@ body {
   }
 }
 
-.navbar {
+nav{
   padding: 1rem;
   width: 100%;
-  position: relative;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .mobile__wrapper {
+  .navbar{
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
-    // z-index: 11;
-  }
+    align-items: space-between;
 
-  @media (max-width: $breakpoint) {
-    display: block;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 10;
-  }
-
-  &__logo {
-    img {
-      height: 25px;
-    }
-  }
-
-  &__links {
-    a {
-      color: #ffffff;
-      font-weight: 800;
-      margin-right: 1rem;
-    }
-
-    display: block;
-
-    
-
-    @media (max-width: $breakpoint) {
-      a {
-        display: block;
-        text-align: right;
-
-        font-size: 2rem;
-        margin-top: 1rem;
-        font-weight: 800;
+    &__logo{
+      img{
+        height: 25px;
       }
     }
   }
 
-  .navbar__menu__button {
-    display: none;
-
-    @media (max-width: $breakpoint) {
-      input[type="checkbox"] {
-        display: none;
-
-        &:checked + label span:first-child {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        &:checked + label span:nth-child(2) {
-          opacity: 0;
-        }
-
-        &:checked + label span:last-child {
-          transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-       
-      }
+  .navbar__menu__button{
+    @media (min-width: $breakpoint) {
+      display: none;
     }
 
     label {
@@ -118,18 +65,51 @@ body {
         border-top: 2px solid #eee;
       }
     }
+  }
 
-    #nav-check {
+  .mobile__links{
+    @media (min-width: $breakpoint) {
+      display: none;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 3rem;
+    transition: all 2000ms ease-in-out;
+
+    a{
+      font-size: 3rem;
+    }
+  }
+
+  .desktop__links{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    a{
+      font-size: 1.4rem;
+      font-weight: 800;
+      border-width: 0%;
+      transition: all ease-in 500ms;
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        border-width: 5px;
+        border-bottom-color: #fff;
+      }
+
+      &.active{
+        border-width: 5px;
+        border-bottom-color: #fff;
+      }
+    }
+    @media (max-width: $breakpoint) {
       display: none;
     }
   }
-
-  @media (max-width: $breakpoint) {
-    .navbar__menu__button {
-      display: block;
-    }
-  }
 }
+
 
 
 

@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,20 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   show = false;
+  isOpen = false;
+
+  menu : {name : string; url : string}[] = [
+    {
+      url : '/',
+      name: 'home'
+    },
+    {
+      url : '/contact',
+      name: 'contact'
+    },
+  ];
+
+  constructor(private router : Router){}
 
   ngOnInit(): void {
     this.windowWidth > 900 ? this.show = true : this.show = false
@@ -27,6 +42,10 @@ export class NavbarComponent implements OnInit {
     //   this.show = true;
     // } else{
     // }
+  }
+
+  get currentRoute(){
+    return this.router.url
   }
 
 }
